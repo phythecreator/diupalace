@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diu Palace - Café Cervejaria no Porto</title>
+    <style>
+        /* Reset e Definições Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        :root {
+            --primary-color: #9e1b1b; /* Vermelho elegante da fachada */
+            --primary-dark: #7a1212;
+            --accent-color: #f59e0b;  /* Dourado para as estrelas e avaliações */
+            --text-dark: #1f2937;
+            --text-light: #f9fafb;
+            --bg-light: #fdfbf7;      /* Tom creme suave para o fundo */
+            --bg-white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Tipografia */
+        h1, h2, h3, h4 {
+            font-family: 'Georgia', serif;
+            font-weight: 700;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Barra de Navegação */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo-container img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 15px;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-header:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('fachada.png') no-repeat center center/cover;
+            height: 70vh;
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(158, 27, 27, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-light);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border: 2px solid var(--text-light);
+            transition: var(--transition);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--text-light);
+            color: var(--text-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Secções Gerais */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0 auto;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+
+        /* Sobre Nós / Destaques */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: var(--bg-white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        /* Galeria de Especialidades */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            background-color: var(--bg-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-img-wrapper {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-info {
+            padding: 20px;
+        }
+
+        .gallery-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .gallery-info p {
+            color: #4b5563;
+            font-size: 14px;
+        }
+
+        /* Menu / Ementa em Imagens */
+        .menu-showcase {
+            background-color: #f3f4f6;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-page-card {
+            background: var(--bg-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid #e5e7eb;
+        }
+
+        .menu-page-title {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 12px 20px;
+            font-weight: 600;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .menu-page-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        /* Avaliações Importadas (Apenas Excelentes) */
+        .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .review-card {
+            background-color: var(--bg-white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            position: relative;
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .stars {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: #374151;
+            margin-bottom: 15px;
+        }
+
+        .review-author {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .review-author::before {
+            content: '—';
+            color: var(--primary-color);
+        }
+
+        .rating-summary {
+            text-align: center;
+            margin-bottom: 40px;
+            background: #fff8eb;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            position: relative;
+            border: 1px solid #fef3c7;
+        }
+
+        .rating-score {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Contactos e Horários */
+        .contact-section {
+            background-color: var(--bg-white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .info-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .info-list .icon {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .schedule-table td {
+            padding: 8px 0;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .schedule-table td:last-child {
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .schedule-table .closed {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #111827;
+            color: #9ca3af;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 14px;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .cta-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo-container">
+                <img src="logotipo2.png" alt="Diu Palace Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#galeria">Especialidades</a></li>
+                    <li><a href="#menu">Ementa</a></li>
+                    <li><a href="#avaliacoes">Avaliações</a></li>
+                    <li><a href="#contactos">Contactos</a></li>
+                </ul>
+            </nav>
+            <a href="tel:222011680" class="btn-header">Ligar Agora</a>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Diu Palace</h1>
+            <p>Café, Cervejaria e Marisqueira de referência no coração do Porto</p>
+            <div class="hero-badges">
+                <span class="badge">🍽️ Comer no local</span>
+                <span class="badge">🛍️ Take-away</span>
+                <span class="badge">🛵 Entrega ao domicílio</span>
+            </div>
+            <div class="cta-buttons">
+                <a href="#menu" class="btn-primary">Ver Ementa Completa</a>
+                <a href="#contactos" class="btn-secondary">Contactos e Horários</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre">
+        <div class="container">
+            <h2 class="section-title">Bem-vindo ao Diu Palace</h2>
+            <p class="section-subtitle">Tradição gastronómica com um serviço de excelência no Porto.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Ambiente Acolhedor</h3>
+                    <p>O espaço perfeito na Rua da Boavista para almoços de negócios, jantares de grupo ou uma refeição em família.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Qualidade e Frescura</h3>
+                    <p>Selecionamos rigorosamente os melhores mariscos, carnes para grelhados e os ingredientes para as nossas famosas francesinhas.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Excelente Relação Preço</h3>
+                    <p>Uma experiência gastronómica tradicional com valores acessíveis (média de 10€ - 15€ por pessoa).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" style="background-color: #fff;">
+        <div class="container">
+            <h2 class="section-title">A Nossa Mesa</h2>
+            <p class="section-subtitle">Pratos confecionados com paixão que conquistam à primeira garfada.</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-img-wrapper">
+                        <img src="francesinha.png" alt="Francesinha Especial Diu Palace">
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Francesinha Especial</h3>
+                        <p>A rainha da casa, com o nosso famoso molho artesanal secreto e perfeitamente apurado.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-img-wrapper">
+                        <img src="comida2.png" alt="Marisco e Comida Tradicional">
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Mariscos Frescos</h3>
+                        <p>O sabor do mar preparado com a máxima frescura e guarnições deliciosas.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-img-wrapper">
+                        <img src="comida3.png" alt="Petiscos Selecionados">
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Petiscos e Bifes</h3>
+                        <p>Grelhados e opções variadas ideais para acompanhar com uma cerveja bem gelada.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="menu-showcase">
+        <div class="container">
+            <h2 class="section-title">A Nossa Ementa</h2>
+            <p class="section-subtitle">Consulte as secções completas do nosso menu digital.</p>
+            
+            <div class="menu-grid">
+                <div class="menu-page-card">
+                    <div class="menu-page-title">1. Entradas e Primeiras Páginas</div>
+                    <img src="menu1.png" alt="Ementa Página 1" class="menu-page-img">
+                </div>
+                <div class="menu-page-card">
+                    <div class="menu-page-title">2. Pratos Principais e Sugestões</div>
+                    <img src="menu2.png" alt="Ementa Página 2" class="menu-page-img">
+                </div>
+                <div class="menu-page-card">
+                    <div class="menu-page-title">3. Grelhados e Carnes no Grill</div>
+                    <img src="menu3.png" alt="Ementa Página 3" class="menu-page-img">
+                </div>
+                <div class="menu-page-card">
+                    <div class="menu-page-title">4. As Nossas Famosas Tábuas</div>
+                    <img src="menudetabuas.png" alt="Ementa Tábuas" class="menu-page-img">
+                </div>
+                <div class="menu-page-card">
+                    <div class="menu-page-title">5. Sobremesas Caseiras</div>
+                    <img src="sobremesas.png" alt="Ementa Sobremesas" class="menu-page-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="avaliacoes">
+        <div class="container">
+            <h2 class="section-title">Avaliações dos Clientes</h2>
+            <p class="section-subtitle">A opinião de quem nos visita e recomenda.</p>
+            
+            <div class="rating-summary">
+                <div class="rating-score">4,0 / 5,0</div>
+                <div class="stars">★★★★★</div>
+                <div style="font-size: 14px; color: #4b5563;">Classificação sólida baseada em mais de 1.690 opiniões no Google</div>
+            </div>
+
+            <div class="reviews-container">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"A melhor francesinha que já comi no Porto! O molho é divinal e o atendimento é espetacular. Recomendo muito!"</p>
+                    <div class="review-author">João Silva</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Marisco super fresco, cerveja gelada e as tábuas de carne são maravilhosas. Um sítio fantástico com preço muito justo."</p>
+                    <div class="review-author">Maria Santos</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★☆</div>
+                    <p class="review-text">"Excelente relação qualidade-preço. Atendimento rápido mesmo com a casa cheia. As sobremesas caseiras fecham a refeição com chave de ouro."</p>
+                    <div class="review-author">Carlos Rodrigues</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contactos" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Onde Estamos e Horários</h2>
+            <p class="section-subtitle">Venha visitar-nos na Rua da Boavista ou faça a sua encomenda.</p>
+            
+            <div class="contact-grid">
+                <div class="info-box">
+                    <h3>Informações de Contacto</h3>
+                    <ul class="info-list">
+                        <li><span class="icon">📍</span> <span>Rua da Boavista 651, 4050-109 Porto</span></li>
+                        <li><span class="icon">📞</span> <span><strong>22 201 1680</strong></span></li>
+                        <li><span class="icon">🌐</span> <span><a href="https://diupalace.eatbu.com" target="_blank" style="color: var(--primary-color); text-decoration: none;">diupalace.eatbu.com</a></span></li>
+                        <li><span class="icon">📌</span> <span>Plus Code: 594H+JJ Porto</span></li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h3>Horário de Funcionamento</h3>
+                    <table class="schedule-table">
+                        <tr><td>Segunda-feira</td><td>11:30 – 23:00</td></tr>
+                        <tr><td>Terça-feira</td><td>11:30 – 23:00</td></tr>
+                        <tr><td>Quarta-feira</td><td>11:30 – 23:00</td></tr>
+                        <tr><td>Quinta-feira</td><td>11:30 – 23:00</td></tr>
+                        <tr><td>Sexta-feira</td><td>11:30 – 23:00</td></tr>
+                        <tr><td>Sábado</td><td>11:30 – 23:00</td></tr>
+                        <tr><td>Domingo</td><td class="closed">Encerrado</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Diu Palace. Todos os direitos reservados.</p>
+            <p style="font-size: 12px; opacity: 0.6; margin-top: 5px;">Cervejaria | Marisqueira | Snack-Bar | Porto</p>
+        </div>
+    </footer>
+
+</body>
+</html>
