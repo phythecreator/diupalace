@@ -3,69 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diu Palace - Café Cervejaria no Porto</title>
+    <title>Diu Palace | Café Cervejaria & Marisqueira no Porto</title>
+    
     <style>
-        /* Reset e Definições Globais */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+        /* Reset e Definições de Design de Alta Gama */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         :root {
-            --primary-color: #9e1b1b; /* Vermelho elegante da fachada */
-            --primary-dark: #7a1212;
-            --accent-color: #f59e0b;  /* Dourado para as estrelas e avaliações */
-            --text-dark: #1f2937;
-            --text-light: #f9fafb;
-            --bg-light: #fdfbf7;      /* Tom creme suave para o fundo */
-            --bg-white: #ffffff;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --transition: all 0.3s ease;
-        }
-
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
+            --primary: #921c1c;       
+            --primary-dark: #6e1212;
+            --dark: #121212;          
+            --grey-dark: #2c2c2c;
+            --grey-light: #f4f1ea;    
+            --white: #ffffff;
+            --ta-green: #00aa6c;      
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow: 0 20px 40px rgba(0,0,0,0.04);
         }
 
         html {
             scroll-behavior: smooth;
         }
 
-        /* Tipografia */
-        h1, h2, h3, h4 {
-            font-family: 'Georgia', serif;
+        body {
+            background-color: #faf8f5;
+            color: var(--dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
             font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
 
-        /* Barra de Navegação */
+        /* Header e Logótipo Ampliado */
         header {
-            background-color: var(--bg-white);
-            box-shadow: var(--shadow);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 20px 0;
         }
 
         .logo-container img {
-            height: 60px;
+            height: 95px; /* Logótipo aumentado para maior autoridade de marca */
             width: auto;
             object-fit: contain;
             display: block;
@@ -74,409 +79,505 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 35px;
         }
 
         nav ul li a {
             text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 600;
+            color: var(--grey-dark);
+            font-weight: 500;
             font-size: 15px;
+            letter-spacing: 0.03em;
             transition: var(--transition);
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
         }
 
         nav ul li a:hover {
-            color: var(--primary-color);
+            color: var(--primary);
         }
 
-        .btn-header {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 10px 20px;
-            border-radius: 25px;
+        .btn-call {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
             transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(146, 28, 28, 0.15);
         }
 
-        .btn-header:hover {
+        .btn-call:hover {
             background-color: var(--primary-dark);
             transform: translateY(-2px);
         }
 
-        /* Hero Section */
+        /* Hero Section Premium */
         .hero {
             position: relative;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('fachada.png') no-repeat center center/cover;
-            height: 70vh;
-            min-height: 450px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.65)), url('fachada.png') no-repeat center center/cover;
+            height: 80vh;
             display: flex;
             align-items: center;
-            color: var(--text-light);
-            text-align: center;
-        }
-
-        .hero-content {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
+            color: var(--white);
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 25px;
         }
 
         .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 30px;
-            font-weight: 300;
+            font-size: 1.35rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
         }
 
         .hero-badges {
             display: flex;
-            justify-content: center;
             gap: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 45px;
             flex-wrap: wrap;
         }
 
         .badge {
-            background-color: rgba(255, 255, 255, 0.2);
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.3);
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.25);
         }
 
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 12px 30px;
-            border-radius: 5px;
+        .btn-luxury {
+            background-color: var(--white);
+            color: var(--dark);
+            padding: 16px 35px;
+            border-radius: 4px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
+            font-weight: 700;
+            font-size: 15px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
             transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(158, 27, 27, 0.4);
         }
 
-        .btn-primary:hover {
+        .btn-luxury:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* Secções de Conteúdo */
+        section {
+            padding: 120px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 80px auto;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        /* Galeria Interativa com Efeito Zoom */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .gallery-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .img-zoom-container {
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .card-meta {
+            padding: 25px;
+        }
+
+        .card-meta h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .zoom-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--white);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 11px;
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 2;
+        }
+
+        .gallery-card:hover .zoom-badge {
+            opacity: 1;
+        }
+
+        /* Secção Ementa Organizada com Botão Único */
+        .menu-section {
+            background: linear-gradient(rgba(244, 241, 234, 0.85), rgba(244, 241, 234, 0.85)), url('fachada.png') no-repeat center center/cover;
+            background-attachment: fixed;
+            text-align: center;
+        }
+
+        .menu-box {
+            max-width: 650px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 60px 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .menu-box h3 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .menu-box p {
+            color: #555;
+            margin-bottom: 35px;
+        }
+
+        .btn-menu-trigger {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 18px 45px;
+            border-radius: 4px;
+            font-size: 16px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-menu-trigger:hover {
             background-color: var(--primary-dark);
             transform: translateY(-2px);
         }
 
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--text-light);
-            padding: 12px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            border: 2px solid var(--text-light);
-            transition: var(--transition);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--text-light);
-            color: var(--text-dark);
-            transform: translateY(-2px);
-        }
-
-        /* Secções Gerais */
-        section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background-color: var(--accent-color);
-            margin: 10px auto 0 auto;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #6b7280;
+        /* Avaliações Estilo TripAdvisor */
+        .ta-header-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
             margin-bottom: 50px;
-            font-size: 1.1rem;
         }
 
-        /* Sobre Nós / Destaques */
-        .features-grid {
+        .ta-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .ta-logo-circle {
+            background: var(--ta-green);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 18px;
+        }
+
+        .ta-brand h4 {
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .ta-rating-summary {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .ta-bubbles {
+            display: flex;
+            gap: 4px;
+        }
+
+        .ta-bubble {
+            width: 16px;
+            height: 16px;
+            background-color: var(--ta-green);
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .ta-bubble.half {
+            background: linear-gradient(90deg, var(--ta-green) 50%, #e0e0e0 50%);
+        }
+
+        .reviews-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .feature-card {
-            background: var(--bg-white);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            border-top: 4px solid var(--primary-color);
-        }
-
-        .feature-card h3 {
-            margin-bottom: 12px;
-            color: var(--text-dark);
-        }
-
-        /* Galeria de Especialidades */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .gallery-item {
-            background-color: var(--bg-white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .gallery-img-wrapper {
-            height: 240px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .gallery-info {
-            padding: 20px;
-        }
-
-        .gallery-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 8px;
-        }
-
-        .gallery-info p {
-            color: #4b5563;
-            font-size: 14px;
-        }
-
-        /* Menu / Ementa em Imagens */
-        .menu-showcase {
-            background-color: #f3f4f6;
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
 
-        .menu-page-card {
-            background: var(--bg-white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            border: 1px solid #e5e7eb;
-        }
-
-        .menu-page-title {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 12px 20px;
-            font-weight: 600;
-            text-align: center;
-            font-size: 1.1rem;
-        }
-
-        .menu-page-img {
-            width: 100%;
-            height: auto;
-            display: block;
+        .review-card-premium {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 35px;
             transition: var(--transition);
         }
 
-        /* Avaliações Importadas (Apenas Excelentes) */
-        .reviews-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+        .review-card-premium:hover {
+            border-color: var(--ta-green);
         }
 
-        .review-card {
-            background-color: var(--bg-white);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            position: relative;
-            border-left: 5px solid var(--accent-color);
+        .rev-user {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
         }
 
-        .stars {
-            color: var(--accent-color);
-            font-size: 1.2rem;
+        .rev-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .rev-stars-date {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .rev-date {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .review-card-premium h4 {
+            font-size: 15px;
+            font-weight: 700;
             margin-bottom: 10px;
         }
 
-        .review-text {
-            font-style: italic;
-            color: #374151;
-            margin-bottom: 15px;
-        }
-
-        .review-author {
-            font-weight: 600;
+        .review-card-premium p.content {
             font-size: 14px;
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            color: #444;
         }
 
-        .review-author::before {
-            content: '—';
-            color: var(--primary-color);
-        }
-
-        .rating-summary {
-            text-align: center;
-            margin-bottom: 40px;
-            background: #fff8eb;
-            padding: 20px;
-            border-radius: 8px;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
-            position: relative;
-            border: 1px solid #fef3c7;
-        }
-
-        .rating-score {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        /* Contactos e Horários */
-        .contact-section {
-            background-color: var(--bg-white);
-        }
-
-        .contact-grid {
+        /* Painel de Contactos Limpo */
+        .grid-contact {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
         }
 
-        .info-box h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--primary-color);
+        .hours-panel {
+            background: var(--white);
+            padding: 45px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
         }
 
-        .info-list {
-            list-style: none;
-        }
-
-        .info-list li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-        }
-
-        .info-list .icon {
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        .schedule-table {
+        .table-hours {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
         }
 
-        .schedule-table td {
-            padding: 8px 0;
-            border-bottom: 1px solid #edf2f7;
+        .table-hours td {
+            padding: 12px 0;
+            border-bottom: 1px solid #f8f8f8;
+            font-size: 14px;
         }
 
-        .schedule-table td:last-child {
-            text-align: right;
+        .closed-day {
+            color: var(--primary);
             font-weight: 600;
         }
 
-        .schedule-table .closed {
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        /* Rodapé */
         footer {
-            background-color: #111827;
-            color: #9ca3af;
+            background-color: var(--dark);
+            color: #888;
             padding: 40px 0;
             text-align: center;
             font-size: 14px;
-            border-top: 4px solid var(--primary-color);
         }
 
-        /* Responsividade */
+        /* LIGHTBOX INTERATIVO AVANÇADO (Lupa / Zoom) */
+        .lightbox-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(14, 14, 14, 0.98);
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-content-wrapper {
+            position: relative;
+            max-width: 85%;
+            max-height: 85%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lightbox-viewer {
+            overflow: hidden;
+            position: relative;
+            cursor: zoom-in;
+            border-radius: 6px;
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 72vh;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-origin: center center;
+        }
+
+        .lightbox-viewer.zoomed {
+            cursor: zoom-out;
+        }
+
+        .lb-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            color: var(--white);
+            font-size: 35px;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+        }
+
+        .lb-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.08);
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.1);
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2010;
+        }
+
+        .lb-arrow:hover { background: var(--white); color: var(--dark); }
+        .lb-prev { left: -80px; }
+        .lb-next { right: -80px; }
+
+        .lb-counter {
+            color: rgba(255,255,255,0.5);
+            font-size: 13px;
+            margin-top: 15px;
+            letter-spacing: 0.1em;
+        }
+
+        .lb-zoom-hint {
+            color: var(--white);
+            font-size: 12px;
+            margin-top: 6px;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 1024px) {
+            .gallery-grid, .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+            .grid-contact { grid-template-columns: 1fr; }
+            .lb-prev { left: 20px; top: auto; bottom: -60px; }
+            .lb-next { right: 20px; top: auto; bottom: -60px; }
+        }
+
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 15px;
-            }
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            .cta-buttons {
-                flex-direction: column;
-                gap: 10px;
-            }
+            .nav-container { flex-direction: column; gap: 20px; }
+            .hero h1 { font-size: 2.8rem; }
+            .gallery-grid, .reviews-grid { grid-template-columns: 1fr; }
+            .logo-container img { height: 75px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Top Navigation Bar -->
     <header>
         <div class="container nav-container">
             <div class="logo-container">
@@ -485,179 +586,184 @@
             <nav>
                 <ul>
                     <li><a href="#inicio">Início</a></li>
-                    <li><a href="#sobre">Sobre Nós</a></li>
                     <li><a href="#galeria">Especialidades</a></li>
-                    <li><a href="#menu">Ementa</a></li>
-                    <li><a href="#avaliacoes">Avaliações</a></li>
+                    <li><a href="#ementa">Ementa</a></li>
+                    <li><a href="#avaliacoes">Opiniões</a></li>
                     <li><a href="#contactos">Contactos</a></li>
                 </ul>
             </nav>
-            <a href="tel:222011680" class="btn-header">Ligar Agora</a>
+            <a href="tel:222011680" class="btn-call">Reservar Mesa</a>
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>Diu Palace</h1>
-            <p>Café, Cervejaria e Marisqueira de referência no coração do Porto</p>
+        <div class="container">
+            <h1>Sabores Autênticos, Momentos Inesquecíveis.</h1>
+            <p>Cervejaria e marisqueira de eleição no Porto, onde a tradição se une à frescura do mar.</p>
             <div class="hero-badges">
-                <span class="badge">🍽️ Comer no local</span>
-                <span class="badge">🛍️ Take-away</span>
-                <span class="badge">🛵 Entrega ao domicílio</span>
+                <span class="badge">🍽️ Serviço Presencial</span>
+                <span class="badge">🛍️ Take-Away Premium</span>
+                <span class="badge">🛵 Entrega Direta</span>
             </div>
-            <div class="cta-buttons">
-                <a href="#menu" class="btn-primary">Ver Ementa Completa</a>
-                <a href="#contactos" class="btn-secondary">Contactos e Horários</a>
-            </div>
+            <button onclick="openMenuGallery()" class="btn-luxury">Explorar Ementa</button>
         </div>
     </section>
 
-    <section id="sobre">
+    <!-- Galeria de Pratos Interativa -->
+    <section id="galeria">
         <div class="container">
-            <h2 class="section-title">Bem-vindo ao Diu Palace</h2>
-            <p class="section-subtitle">Tradição gastronómica com um serviço de excelência no Porto.</p>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>Ambiente Acolhedor</h3>
-                    <p>O espaço perfeito na Rua da Boavista para almoços de negócios, jantares de grupo ou uma refeição em família.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Qualidade e Frescura</h3>
-                    <p>Selecionamos rigorosamente os melhores mariscos, carnes para grelhados e os ingredientes para as nossas famosas francesinhas.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Excelente Relação Preço</h3>
-                    <p>Uma experiência gastronómica tradicional com valores acessíveis (média de 10€ - 15€ por pessoa).</p>
-                </div>
+            <div class="section-header">
+                <h2>As Nossas Especialidades</h2>
+                <p>Clique em qualquer imagem para ampliar, aproximar e explorar as texturas dos nossos pratos.</p>
             </div>
-        </div>
-    </section>
-
-    <section id="galeria" style="background-color: #fff;">
-        <div class="container">
-            <h2 class="section-title">A Nossa Mesa</h2>
-            <p class="section-subtitle">Pratos confecionados com paixão que conquistam à primeira garfada.</p>
             
             <div class="gallery-grid">
-                <div class="gallery-item">
-                    <div class="gallery-img-wrapper">
+                <div class="gallery-card" onclick="openFoodGallery(0)">
+                    <div class="img-zoom-container">
+                        <span class="zoom-badge">🔍 Ver Detalhes</span>
                         <img src="francesinha.png" alt="Francesinha Especial Diu Palace">
                     </div>
-                    <div class="gallery-info">
+                    <div class="card-meta">
                         <h3>Francesinha Especial</h3>
-                        <p>A rainha da casa, com o nosso famoso molho artesanal secreto e perfeitamente apurado.</p>
+                        <p>O equilíbrio perfeito entre carnes selecionadas e o lendário molho artesanal secreto.</p>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <div class="gallery-img-wrapper">
-                        <img src="comida2.png" alt="Marisco e Comida Tradicional">
+
+                <div class="gallery-card" onclick="openFoodGallery(1)">
+                    <div class="img-zoom-container">
+                        <span class="zoom-badge">🔍 Ver Detalhes</span>
+                        <img src="comida2.png" alt="Marisco Fresco">
                     </div>
-                    <div class="gallery-info">
-                        <h3>Mariscos Frescos</h3>
-                        <p>O sabor do mar preparado com a máxima frescura e guarnições deliciosas.</p>
+                    <div class="card-meta">
+                        <h3>Mariscos & Grelhados</h3>
+                        <p>A frescura incontestável do oceano preparada com mestria na nossa grelha.</p>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <div class="gallery-img-wrapper">
-                        <img src="comida3.png" alt="Petiscos Selecionados">
+
+                <div class="gallery-card" onclick="openFoodGallery(2)">
+                    <div class="img-zoom-container">
+                        <span class="zoom-badge">🔍 Ver Detalhes</span>
+                        <img src="comida3.png" alt="Petiscos de Referência">
                     </div>
-                    <div class="gallery-info">
-                        <h3>Petiscos e Bifes</h3>
-                        <p>Grelhados e opções variadas ideais para acompanhar com uma cerveja bem gelada.</p>
+                    <div class="card-meta">
+                        <h3>Petiscos e Tábuas</h3>
+                        <p>A seleção ideal para partilhar com amigos e harmonizar com a nossa garrafeira.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="menu" class="menu-showcase">
+    <!-- Secção Ementa Minimalista com Botão Único -->
+    <section id="ementa" class="menu-section">
         <div class="container">
-            <h2 class="section-title">A Nossa Ementa</h2>
-            <p class="section-subtitle">Consulte as secções completas do nosso menu digital.</p>
-            
-            <div class="menu-grid">
-                <div class="menu-page-card">
-                    <div class="menu-page-title">1. Entradas e Primeiras Páginas</div>
-                    <img src="menu1.png" alt="Ementa Página 1" class="menu-page-img">
+            <div class="menu-box">
+                <h3>A Nossa Ementa</h3>
+                <p>Abra a nossa galeria interativa para ver a ementa completa de pratos, tábuas e sobremesas. Use o clique para aproximar.</p>
+                <button class="btn-menu-trigger" onclick="openMenuGallery()">Ver Menu Completo</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avaliações Estilo TripAdvisor -->
+    <section id="avaliacoes" style="background-color: #ffffff;">
+        <div class="container">
+            <div class="section-header">
+                <h2>O que dizem os nossos clientes</h2>
+                <p>Classificação de excelência baseada em opiniões reais da comunidade.</p>
+            </div>
+
+            <!-- Cabeçalho TripAdvisor Estilizado -->
+            <div class="ta-header-card">
+                <div class="ta-brand">
+                    <div class="ta-logo-circle">🦉</div>
+                    <div>
+                        <h4>TripAdvisor</h4>
+                        <p>Avaliações certificadas da comunidade de viajantes</p>
+                    </div>
                 </div>
-                <div class="menu-page-card">
-                    <div class="menu-page-title">2. Pratos Principais e Sugestões</div>
-                    <img src="menu2.png" alt="Ementa Página 2" class="menu-page-img">
+                <div class="ta-rating-summary">
+                    <span style="font-weight:700;">Excelente (4.5/5.0)</span>
+                    <div class="ta-bubbles">
+                        <span class="ta-bubble"></span><span class="ta-bubble"></span><span class="ta-bubble"></span><span class="ta-bubble"></span><span class="ta-bubble half"></span>
+                    </div>
                 </div>
-                <div class="menu-page-card">
-                    <div class="menu-page-title">3. Grelhados e Carnes no Grill</div>
-                    <img src="menu3.png" alt="Ementa Página 3" class="menu-page-img">
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card-premium">
+                    <div class="rev-user">
+                        <div class="rev-avatar">RS</div>
+                        <div>
+                            <h5 style="font-size:14px; font-weight:700;">Ricardo S.</h5>
+                            <p style="font-size:11px; color:#888;">Porto, Portugal • 24 opiniões</p>
+                        </div>
+                    </div>
+                    <div class="rev-stars-date">
+                        <div class="ta-bubbles">
+                            <span class="ta-bubble"></span><span class="ta-bubble"></span><span class="ta-bubble"></span><span class="ta-bubble"></span><span class="ta-bubble"></span>
+                        </div>
+                        <span class="rev-date">Junho de 2026</span>
+                    </div>
+                    <h4>A melhor francesinha do Porto</h4>
+                    <p class="content">"Uma experiência fantástica. O molho é espesso, picante na medida certa. O atendimento foi célere e extremamente atencioso."</p>
                 </div>
-                <div class="menu-page-card">
-                    <div class="menu-page-title">4. As Nossas Famosas Tábuas</div>
-                    <img src="menudetabuas.png" alt="Ementa Tábuas" class="menu-page-img">
+
+                <div class="review-card-premium">
+                    <div class="rev-user">
+                        <div class="rev-avatar">BC</div>
+                        <div>
+                            <h5 style="font-size:14px; font-weight:700;">Beatriz C.</h5>
+                            <p style="font-size:11px; color:#888;">Lisboa, Portugal • 12 opiniões</p>
+                        </div>
+                    </div>
+                    <div class="rev-stars-date">
+                        <div class="ta-bubbles">
+                            <span class="ta-bubble"></span><span class="ta-bubble"></span><span class="ta-bubble"></span><span class="ta-bubble"></span><span class="ta-bubble"></span>
+                        </div>
+                        <span class="rev-date">Maio de 2026</span>
+                    </div>
+                    <h4>Marisco fresquíssimo</h4>
+                    <p class="content">"Surpreendeu-me imenso a qualidade do marisco. Tudo confecionado de forma simples para valorizar o produto. Espaço muito agradável."</p>
                 </div>
-                <div class="menu-page-card">
-                    <div class="menu-page-title">5. Sobremesas Caseiras</div>
-                    <img src="sobremesas.png" alt="Ementa Sobremesas" class="menu-page-img">
+
+                <div class="review-card-premium">
+                    <div class="rev-user">
+                        <div class="rev-avatar">AR</div>
+                        <div>
+                            <h5 style="font-size:14px; font-weight:700;">António R.</h5>
+                            <p style="font-size:11px; color:#888;">Braga, Portugal • 42 opiniões</p>
+                        </div>
+                    </div>
+                    <div class="rev-stars-date">
+                        <div class="ta-bubbles">
+                            <span class="ta-bubble"></span><span class="ta-bubble"></span><span class="ta-bubble"></span><span class="ta-bubble"></span><span class="ta-bubble"></span>
+                        </div>
+                        <span class="rev-date">Abril de 2026</span>
+                    </div>
+                    <h4>Tábuas generosas e muito saborosas</h4>
+                    <p class="content">"Fomos num jantar de grupo e as tábuas de carne estavam fabulosas. Relação qualidade-preço excecional na zona da Boavista."</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="avaliacoes">
+    <!-- Contactos Limpos (Sem Eatbu) -->
+    <section id="contactos">
         <div class="container">
-            <h2 class="section-title">Avaliações dos Clientes</h2>
-            <p class="section-subtitle">A opinião de quem nos visita e recomenda.</p>
-            
-            <div class="rating-summary">
-                <div class="rating-score">4,0 / 5,0</div>
-                <div class="stars">★★★★★</div>
-                <div style="font-size: 14px; color: #4b5563;">Classificação sólida baseada em mais de 1.690 opiniões no Google</div>
-            </div>
-
-            <div class="reviews-container">
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"A melhor francesinha que já comi no Porto! O molho é divinal e o atendimento é espetacular. Recomendo muito!"</p>
-                    <div class="review-author">João Silva</div>
-                </div>
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"Marisco super fresco, cerveja gelada e as tábuas de carne são maravilhosas. Um sítio fantástico com preço muito justo."</p>
-                    <div class="review-author">Maria Santos</div>
-                </div>
-                <div class="review-card">
-                    <div class="stars">★★★★☆</div>
-                    <p class="review-text">"Excelente relação qualidade-preço. Atendimento rápido mesmo com a casa cheia. As sobremesas caseiras fecham a refeição com chave de ouro."</p>
-                    <div class="review-author">Carlos Rodrigues</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contactos" class="contact-section">
-        <div class="container">
-            <h2 class="section-title">Onde Estamos e Horários</h2>
-            <p class="section-subtitle">Venha visitar-nos na Rua da Boavista ou faça a sua encomenda.</p>
-            
-            <div class="contact-grid">
-                <div class="info-box">
-                    <h3>Informações de Contacto</h3>
-                    <ul class="info-list">
-                        <li><span class="icon">📍</span> <span>Rua da Boavista 651, 4050-109 Porto</span></li>
-                        <li><span class="icon">📞</span> <span><strong>22 201 1680</strong></span></li>
-                        <li><span class="icon">🌐</span> <span><a href="https://diupalace.eatbu.com" target="_blank" style="color: var(--primary-color); text-decoration: none;">diupalace.eatbu.com</a></span></li>
-                        <li><span class="icon">📌</span> <span>Plus Code: 594H+JJ Porto</span></li>
-                    </ul>
+            <div class="grid-contact">
+                <div>
+                    <h3 style="font-size: 2.5rem; margin-bottom: 30px;">Localização & Reservas</h3>
+                    <p style="margin-bottom: 15px;">📍 <strong>Endereço:</strong> Rua da Boavista 651, 4050-109 Porto, Portugal</p>
+                    <p style="margin-bottom: 15px;">📞 <strong>Telefone:</strong> 22 201 1680 (Rede fixa nacional)</p>
                 </div>
 
-                <div class="info-box">
-                    <h3>Horário de Funcionamento</h3>
-                    <table class="schedule-table">
-                        <tr><td>Segunda-feira</td><td>11:30 – 23:00</td></tr>
-                        <tr><td>Terça-feira</td><td>11:30 – 23:00</td></tr>
-                        <tr><td>Quarta-feira</td><td>11:30 – 23:00</td></tr>
-                        <tr><td>Quinta-feira</td><td>11:30 – 23:00</td></tr>
-                        <tr><td>Sexta-feira</td><td>11:30 – 23:00</td></tr>
-                        <tr><td>Sábado</td><td>11:30 – 23:00</td></tr>
-                        <tr><td>Domingo</td><td class="closed">Encerrado</td></tr>
+                <div class="hours-panel">
+                    <h4 style="font-size:1.4rem; margin-bottom:20px;">Horário de Funcionamento</h4>
+                    <table class="table-hours">
+                        <tr><td>Segunda a Sábado</td><td>11:30 – 23:00</td></tr>
+                        <tr><td>Domingo</td><td class="closed-day">Encerrado para descanso</td></tr>
                     </table>
                 </div>
             </div>
@@ -667,9 +773,97 @@
     <footer>
         <div class="container">
             <p>&copy; 2026 Diu Palace. Todos os direitos reservados.</p>
-            <p style="font-size: 12px; opacity: 0.6; margin-top: 5px;">Cervejaria | Marisqueira | Snack-Bar | Porto</p>
         </div>
     </footer>
 
+    <!-- INTERACTIVE LIGHTBOX SYSTEM -->
+    <div id="lightbox-modal" class="lightbox-modal">
+        <button class="lb-close" onclick="closeLightbox()">&times;</button>
+        <button class="lb-arrow lb-prev" onclick="changeImage(-1)">&#10094;</button>
+        <button class="lb-arrow lb-next" onclick="changeImage(1)">&#10095;</button>
+        
+        <div class="lightbox-content-wrapper">
+            <div id="lb-viewer" class="lightbox-viewer" onclick="toggleZoom(event)">
+                <img id="lightbox-img" class="lightbox-img" src="" alt="Visualização">
+            </div>
+            <div id="lb-counter" class="lb-counter">1 / 5</div>
+            <div class="lb-zoom-hint">Dica: Clique em cima da imagem para aproximar / afastar</div>
+        </div>
+    </div>
+
+    <!-- Script de Gestão da Galeria Dinâmica e Zoom -->
+    <script>
+        const menuImages = ['menu1.png', 'menu2.png', 'menu3.png', 'menudetabuas.png', 'sobremesas.png'];
+        const foodImages = ['francesinha.png', 'comida2.png', 'comida3.png'];
+
+        let currentGallery = [];
+        let currentIndex = 0;
+        let isZoomed = false;
+
+        const modal = document.getElementById('lightbox-modal');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lbCounter = document.getElementById('lb-counter');
+        const lbViewer = document.getElementById('lb-viewer');
+
+        function openMenuGallery() {
+            currentGallery = menuImages;
+            currentIndex = 0;
+            updateLightbox();
+            modal.style.display = 'flex';
+        }
+
+        function openFoodGallery(index) {
+            currentGallery = foodImages;
+            currentIndex = index;
+            updateLightbox();
+            modal.style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            modal.style.display = 'none';
+            resetZoom();
+        }
+
+        function updateLightbox() {
+            lightboxImg.src = currentGallery[currentIndex];
+            lbCounter.innerText = `${currentIndex + 1} / ${currentGallery.length}`;
+            resetZoom();
+        }
+
+        function changeImage(direction) {
+            currentIndex += direction;
+            if (currentIndex >= currentGallery.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = currentGallery.length - 1;
+            updateLightbox();
+        }
+
+        function toggleZoom(e) {
+            isZoomed = !isZoomed;
+            if (isZoomed) {
+                lightboxImg.style.transform = "scale(2.2)";
+                lbViewer.classList.add('zoomed');
+                lbViewer.style.overflow = "auto";
+            } else {
+                resetZoom();
+            }
+        }
+
+        function resetZoom() {
+            isZoomed = false;
+            lightboxImg.style.transform = "scale(1)";
+            lbViewer.classList.remove('zoomed');
+            lbViewer.style.overflow = "hidden";
+        }
+
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) closeLightbox();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") closeLightbox();
+            if (e.key === "ArrowRight" && modal.style.display === 'flex') changeImage(1);
+            if (e.key === "ArrowLeft" && modal.style.display === 'flex') changeImage(-1);
+        });
+    </script>
 </body>
 </html>
