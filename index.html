@@ -8,7 +8,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-        /* Reset e Definições de Design Editorial */
+        /* Reset e Definições Fundamentais */
         * {
             margin: 0;
             padding: 0;
@@ -22,10 +22,10 @@
             --dark: #121212;          
             --grey-dark: #2c2c2c;
             --grey-light: #fdfbfa;    
-            --accent: #bc9c6a;        /* Tom Dourado Sutil */
+            --accent: #bc9c6a;        
             --white: #ffffff;
-            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            --shadow: 0 30px 60px rgba(0,0,0,0.02);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow: 0 20px 40px rgba(0,0,0,0.03);
         }
 
         html {
@@ -35,7 +35,7 @@
         body {
             background-color: #faf8f5;
             color: var(--dark);
-            line-height: 1.7;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -49,13 +49,13 @@
             width: 100%;
             max-width: 1300px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 24px;
         }
 
-        /* Header e Logótipo Destacado */
+        /* Header Dinâmico */
         header {
-            background-color: rgba(255, 255, 255, 0.97);
-            backdrop-filter: blur(15px);
+            background-color: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -66,11 +66,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 12px 0;
         }
 
         .logo-container img {
-            height: 95px; 
+            height: 85px; 
             width: auto;
             object-fit: contain;
             display: block;
@@ -79,7 +79,7 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 40px;
+            gap: 35px;
         }
 
         nav ul li a {
@@ -87,7 +87,6 @@
             color: var(--grey-dark);
             font-weight: 500;
             font-size: 15px;
-            letter-spacing: 0.02em;
             transition: var(--transition);
             position: relative;
         }
@@ -114,43 +113,42 @@
         .btn-call {
             background-color: var(--primary);
             color: var(--white);
-            padding: 14px 30px;
+            padding: 12px 26px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             font-size: 14px;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
+            letter-spacing: 0.03em;
             transition: var(--transition);
-            box-shadow: 0 10px 25px rgba(146, 28, 28, 0.15);
         }
 
         .btn-call:hover {
             background-color: var(--primary-dark);
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
 
-        /* Hero Secção */
+        /* Hero Secção - Tom Humano e Realista */
         .hero {
             position: relative;
-            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.6)), url('fachada.png') no-repeat center center/cover;
-            height: 75vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.65)), url('fachada.png') no-repeat center center/cover;
+            height: 70vh;
+            min-height: 500px;
             display: flex;
             align-items: center;
             color: var(--white);
         }
 
         .hero h1 {
-            font-size: 4.2rem;
+            font-size: 3.8rem;
             line-height: 1.15;
-            margin-bottom: 25px;
-            max-width: 900px;
+            margin-bottom: 20px;
+            max-width: 850px;
         }
 
         .hero p {
-            font-size: 1.35rem;
-            margin-bottom: 40px;
-            max-width: 700px;
+            font-size: 1.25rem;
+            margin-bottom: 35px;
+            max-width: 650px;
             opacity: 0.95;
             font-weight: 300;
         }
@@ -158,11 +156,11 @@
         .btn-luxury {
             background-color: var(--white);
             color: var(--dark);
-            padding: 18px 40px;
+            padding: 16px 36px;
             border-radius: 4px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 15px;
+            font-size: 14px;
             text-transform: uppercase;
             border: none;
             cursor: pointer;
@@ -173,77 +171,75 @@
         .btn-luxury:hover {
             background-color: var(--primary);
             color: var(--white);
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
 
         /* Secções Gerais */
         section {
-            padding: 120px 0;
+            padding: 100px 0;
         }
 
         .section-header {
             text-align: center;
             max-width: 700px;
-            margin: 0 auto 60px auto;
+            margin: 0 auto 50px auto;
         }
 
         .section-header h2 {
-            font-size: 3rem;
+            font-size: 2.6rem;
             color: var(--dark);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        /* Nova Secção de Qualidades Extra (Comodidades) */
+        /* Comodidades com Símbolos */
         .features-section {
             background-color: var(--white);
-            padding: 80px 0;
+            padding: 60px 0;
             border-bottom: 1px solid rgba(0,0,0,0.03);
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
+            gap: 24px;
             text-align: center;
         }
 
         .feature-item {
-            padding: 30px 20px;
+            padding: 24px 15px;
             background: var(--grey-light);
-            border-radius: 12px;
+            border-radius: 8px;
             border: 1px solid rgba(0,0,0,0.02);
             transition: var(--transition);
         }
 
         .feature-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             border-color: var(--accent);
         }
 
         .feature-icon {
-            font-size: 32px;
-            margin-bottom: 15px;
+            font-size: 30px;
+            margin-bottom: 12px;
             display: inline-block;
-            color: var(--primary);
         }
 
         .feature-item h4 {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             color: var(--dark);
-            letter-spacing: 0.02em;
         }
 
-        /* Galeria de Fotos de Refeições Purificada */
+        /* Galeria Limpa de Refeições */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: 24px;
         }
 
         .gallery-card {
             background: var(--white);
-            border-radius: 12px;
+            border-radius: 8px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
@@ -252,12 +248,11 @@
         }
 
         .gallery-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 40px 80px rgba(0,0,0,0.06);
+            transform: translateY(-6px);
         }
 
         .img-zoom-container {
-            height: 400px; /* Mais alto e imponente */
+            height: 380px;
             overflow: hidden;
             position: relative;
         }
@@ -266,11 +261,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.7s ease;
+            transition: transform 0.5s ease;
         }
 
         .gallery-card:hover img {
-            transform: scale(1.05);
+            transform: scale(1.04);
         }
 
         .zoom-badge {
@@ -280,25 +275,24 @@
             transform: translate(-50%, -50%);
             background: rgba(18, 18, 18, 0.85);
             color: var(--white);
-            padding: 12px 24px;
+            padding: 10px 20px;
             border-radius: 4px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.05em;
             backdrop-filter: blur(4px);
             opacity: 0;
             transition: var(--transition);
             z-index: 2;
-            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .gallery-card:hover .zoom-badge {
             opacity: 1;
         }
 
-        /* Secção Ementa Minimalista */
+        /* Bloco Ementa Oficial */
         .menu-section {
-            background: linear-gradient(rgba(244, 241, 234, 0.88), rgba(244, 241, 234, 0.88)), url('fachada.png') no-repeat center center/cover;
+            background: linear-gradient(rgba(244, 241, 234, 0.9), rgba(244, 241, 234, 0.9)), url('fachada.png') no-repeat center center/cover;
             background-attachment: fixed;
             text-align: center;
         }
@@ -307,31 +301,31 @@
             max-width: 650px;
             margin: 0 auto;
             background: var(--white);
-            padding: 70px 50px;
-            border-radius: 16px;
+            padding: 60px 40px;
+            border-radius: 12px;
             box-shadow: var(--shadow);
         }
 
         .menu-box h3 {
-            font-size: 2.4rem;
-            margin-bottom: 15px;
+            font-size: 2.2rem;
+            margin-bottom: 12px;
         }
 
         .menu-box p {
             color: #555;
-            margin-bottom: 40px;
-            font-size: 1.1rem;
+            margin-bottom: 35px;
+            font-size: 1.05rem;
         }
 
         .btn-menu-trigger {
             background-color: var(--primary);
             color: var(--white);
-            padding: 18px 50px;
+            padding: 16px 45px;
             border-radius: 4px;
-            font-size: 15px;
+            font-size: 14px;
             text-transform: uppercase;
             font-weight: 700;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.05em;
             border: none;
             cursor: pointer;
             transition: var(--transition);
@@ -339,39 +333,34 @@
 
         .btn-menu-trigger:hover {
             background-color: var(--primary-dark);
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
 
-        /* Avaliações Avançadas e Independentes */
+        /* Opiniões Limpas (Sem Localização) */
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: 24px;
         }
 
         .review-card-premium {
             background: #fff;
             border: 1px solid #eef0f2;
-            border-radius: 12px;
-            padding: 40px;
-            transition: var(--transition);
+            border-radius: 8px;
+            padding: 35px;
             box-shadow: var(--shadow);
-        }
-
-        .review-card-premium:hover {
-            border-color: var(--accent);
         }
 
         .rev-user {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
+            gap: 12px;
+            margin-bottom: 20px;
         }
 
         .rev-avatar {
-            width: 45px;
-            height: 45px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             background: var(--grey-light);
             border: 1px solid #eaeaea;
@@ -389,20 +378,20 @@
 
         .rev-user-info p {
             font-size: 12px;
-            color: #888;
+            color: #777;
         }
 
         .rev-stars-date {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .custom-stars {
             color: var(--accent);
-            letter-spacing: 2px;
-            font-size: 14px;
+            font-size: 13px;
+            letter-spacing: 1px;
         }
 
         .rev-date {
@@ -412,31 +401,30 @@
 
         .review-card-premium h4 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             color: var(--dark);
         }
 
         .review-card-premium p.content {
             font-size: 14px;
             color: #444;
-            line-height: 1.65;
+            line-height: 1.6;
         }
 
-        /* Contactos Organizados */
+        /* Contactos */
         .grid-contact {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 60px;
         }
 
         .hours-panel {
             background: var(--white);
-            padding: 45px;
-            border-radius: 12px;
+            padding: 40px;
+            border-radius: 8px;
             box-shadow: var(--shadow);
-            border: 1px solid rgba(0,0,0,0.02);
         }
 
         .table-hours {
@@ -445,7 +433,7 @@
         }
 
         .table-hours td {
-            padding: 14px 0;
+            padding: 12px 0;
             border-bottom: 1px solid #f8f8f8;
             font-size: 14px;
         }
@@ -457,21 +445,20 @@
 
         footer {
             background-color: var(--dark);
-            color: #777;
-            padding: 50px 0;
+            color: #666;
+            padding: 40px 0;
             text-align: center;
             font-size: 14px;
-            border-top: 1px solid rgba(255,255,255,0.02);
         }
 
-        /* LIGHTBOX INTERATIVO COM ZOOM COMPLETO */
+        /* SYSTEM LIGHTBOX ULTRA-OTIMIZADO PARA TELEMÓVEIS */
         .lightbox-modal {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(10, 10, 10, 0.99);
+            background-color: rgba(10, 10, 10, 0.98);
             z-index: 2000;
             display: none;
             justify-content: center;
@@ -480,8 +467,8 @@
 
         .lightbox-content-wrapper {
             position: relative;
-            max-width: 85%;
-            max-height: 85%;
+            width: 90%;
+            max-width: 800px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -491,90 +478,95 @@
             overflow: hidden;
             position: relative;
             cursor: zoom-in;
-            border-radius: 4px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
 
         .lightbox-img {
             max-width: 100%;
-            max-height: 72vh;
+            max-height: 75vh;
             object-fit: contain;
             display: block;
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            transform-origin: center center;
-        }
-
-        .lightbox-viewer.zoomed {
-            cursor: zoom-out;
+            transition: transform 0.3s ease;
         }
 
         .lb-close {
             position: absolute;
-            top: -55px;
+            top: -50px;
             right: 0;
             color: var(--white);
-            font-size: 38px;
+            font-size: 36px;
             cursor: pointer;
             background: transparent;
             border: none;
-            transition: var(--transition);
         }
 
-        .lb-close:hover { color: var(--accent); }
-
+        /* Setas Otimizadas para Toque no Telemóvel (Dentro da Área Útil) */
         .lb-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255,255,255,0.04);
+            background: rgba(0, 0, 0, 0.6);
             color: var(--white);
-            border: 1px solid rgba(255,255,255,0.08);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            font-size: 22px;
+            border: 1px solid rgba(255,255,255,0.2);
+            width: 50px;
+            height: 55px;
+            font-size: 20px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 2010;
             transition: var(--transition);
+            border-radius: 4px;
         }
 
-        .lb-arrow:hover { background: var(--white); color: var(--dark); }
-        .lb-prev { left: -90px; }
-        .lb-next { right: -90px; }
+        .lb-arrow:active {
+            background: var(--primary);
+        }
+
+        .lb-prev { left: 5px; }
+        .lb-next { right: 5px; }
 
         .lb-counter {
-            color: rgba(255,255,255,0.4);
+            color: rgba(255,255,255,0.6);
             font-size: 13px;
-            margin-top: 18px;
-            letter-spacing: 0.12em;
+            margin-top: 15px;
+            letter-spacing: 0.05em;
         }
 
         .lb-zoom-hint {
             color: var(--accent);
-            font-size: 12px;
-            margin-top: 6px;
-            opacity: 0.8;
-            letter-spacing: 0.05em;
+            font-size: 11px;
+            margin-top: 4px;
+            text-align: center;
         }
 
-        /* Responsividade Responsável */
+        /* Regras de Responsividade */
         @media (max-width: 1024px) {
             .gallery-grid, .reviews-grid { grid-template-columns: repeat(2, 1fr); }
             .features-grid { grid-template-columns: repeat(2, 1fr); }
-            .grid-contact { grid-template-columns: 1fr; }
-            .lb-prev { left: 20px; top: auto; bottom: -60px; }
-            .lb-next { right: 20px; top: auto; bottom: -60px; }
+            .grid-contact { grid-template-columns: 1fr; gap: 40px; }
         }
 
         @media (max-width: 768px) {
-            .nav-container { flex-direction: column; gap: 20px; }
-            nav ul { gap: 20px; flex-wrap: wrap; justify-content: center; }
-            .hero h1 { font-size: 2.6rem; }
+            .nav-container { flex-direction: column; gap: 15px; padding: 15px 0; }
+            nav ul { gap: 18px; flex-wrap: wrap; justify-content: center; }
+            .btn-call { width: 100%; text-align: center; max-width: 260px; }
+            .hero h1 { font-size: 2.3rem; }
+            .hero p { font-size: 1.1rem; }
             .gallery-grid, .reviews-grid, .features-grid { grid-template-columns: 1fr; }
-            .logo-container img { height: 80px; }
-            section { padding: 80px 0; }
+            .img-zoom-container { height: 300px; }
+            section { padding: 60px 0; }
+            
+            /* Melhorias específicas para ecrãs táteis nas setas */
+            .lb-arrow {
+                width: 46px;
+                height: 60px;
+                font-size: 18px;
+                background: rgba(18, 18, 18, 0.75);
+            }
         }
     </style>
 </head>
@@ -599,16 +591,16 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (Texto Humano e Realista) -->
     <section id="inicio" class="hero">
         <div class="container">
-            <h1>Sabores Autênticos, Momentos Inesquecíveis.</h1>
-            <p>Uma experiência gastronómica de eleição no coração do Porto, onde o conforto e a tradição culinária se encontram.</p>
-            <button onclick="openMenuGallery()" class="btn-luxury">Explorar Ementa</button>
+            <h1>A boa mesa tradicional, mesmo no centro do Porto.</h1>
+            <p>Das francesinhas com o molho no ponto certo ao marisco fresco e pratos do dia bem servidos. Cozinha com alma, serviço atencioso e o conforto que merece.</p>
+            <button onclick="openMenuGallery()" class="btn-luxury">Ver a Ementa</button>
         </div>
     </section>
 
-    <!-- Secção de Qualidades Extra (Comodidades) -->
+    <!-- Comodidades Organizadas com Ícones -->
     <section class="features-section">
         <div class="container">
             <div class="features-grid">
@@ -632,56 +624,56 @@
         </div>
     </section>
 
-    <!-- Galeria de Fotos de Refeições Pura -->
+    <!-- Galeria de Fotos de Refeições (Sem Títulos Alinhada) -->
     <section id="galeria">
         <div class="container">
             <div class="section-header">
                 <h2>Galeria de Fotos de Refeições</h2>
-                <p>Imagens reais da nossa cozinha. Clique sobre qualquer fotografia para expandir e aproximar.</p>
+                <p>Pratos confecionados diariamente no nosso espaço. Toque para ampliar.</p>
             </div>
             
             <div class="gallery-grid">
                 <div class="gallery-card" onclick="openFoodGallery(0)">
                     <div class="img-zoom-container">
                         <span class="zoom-badge">🔍 AMPLIAR FOTO</span>
-                        <img src="francesinha.png" alt="Refeição Diu Palace 1">
+                        <img src="francesinha.png" alt="Prato Diu Palace">
                     </div>
                 </div>
 
                 <div class="gallery-card" onclick="openFoodGallery(1)">
                     <div class="img-zoom-container">
                         <span class="zoom-badge">🔍 AMPLIAR FOTO</span>
-                        <img src="comida2.png" alt="Refeição Diu Palace 2">
+                        <img src="comida2.png" alt="Prato Diu Palace">
                     </div>
                 </div>
 
                 <div class="gallery-card" onclick="openFoodGallery(2)">
                     <div class="img-zoom-container">
                         <span class="zoom-badge">🔍 AMPLIAR FOTO</span>
-                        <img src="comida3.png" alt="Refeição Diu Palace 3">
+                        <img src="comida3.png" alt="Prato Diu Palace">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Secção Ementa Dinâmica -->
+    <!-- Secção Ementa Dinâmica (Data Atualizada) -->
     <section id="ementa" class="menu-section">
         <div class="container">
             <div class="menu-box">
-                <h3>Ementa Oficial</h3>
-                <p>Consulte a nossa ementa completa e detalhada de pratos principais, vinhos e sobremesas através do nosso visualizador interativo.</p>
-                <button class="btn-menu-trigger" onclick="openMenuGallery()">Ver Menu Completo</button>
+                <h3>Ementa Oficial 2024/2025</h3>
+                <p>Consulte a nossa ementa completa através do visualizador de páginas interativo.</p>
+                <button class="btn-menu-trigger" onclick="openMenuGallery()">Abrir Páginas do Menu</button>
             </div>
         </div>
     </section>
 
-    <!-- Avaliações Limpas e Sofisticadas -->
+    <!-- Opiniões Limpas (Sem Localizações das Pessoas) -->
     <section id="avaliacoes" style="background-color: #ffffff;">
         <div class="container">
             <div class="section-header">
-                <h2>Experiências dos Nossos Clientes</h2>
-                <p>A partilha sincera de quem nos visita e vivencia a nossa hospitalidade.</p>
+                <h2>O que dizem os nossos clientes</h2>
+                <p>A opinião sincera de quem nos visita.</p>
             </div>
 
             <div class="reviews-grid">
@@ -691,7 +683,7 @@
                         <div class="rev-avatar">RS</div>
                         <div class="rev-user-info">
                             <h5>Ricardo S.</h5>
-                            <p>Porto, Portugal • 24 opiniões</p>
+                            <p>24 opiniões</p>
                         </div>
                     </div>
                     <div class="rev-stars-date">
@@ -708,7 +700,7 @@
                         <div class="rev-avatar">BC</div>
                         <div class="rev-user-info">
                             <h5>Beatriz C.</h5>
-                            <p>Lisboa, Portugal • 12 opiniões</p>
+                            <p>12 opiniões</p>
                         </div>
                     </div>
                     <div class="rev-stars-date">
@@ -719,13 +711,13 @@
                     <p class="content">"Surpreendeu-me imenso a envolvência do espaço e o brio profissional. Tudo muito limpo, acolhedor e com ar condicionado perfeito para os dias quentes."</p>
                 </div>
 
-                <!-- Card 3 (Data Alterada para Novembro 2025) -->
+                <!-- Card 3 -->
                 <div class="review-card-premium">
                     <div class="rev-user">
                         <div class="rev-avatar">AR</div>
                         <div class="rev-user-info">
                             <h5>António R.</h5>
-                            <p>Braga, Portugal • 42 opiniões</p>
+                            <p>42 opiniões</p>
                         </div>
                     </div>
                     <div class="rev-stars-date">
@@ -739,21 +731,21 @@
         </div>
     </section>
 
-    <!-- Contactos Consolidados -->
+    <!-- Contactos -->
     <section id="contactos">
         <div class="container">
             <div class="grid-contact">
                 <div>
-                    <h3 style="font-size: 2.5rem; margin-bottom: 30px;">Localização & Reservas</h3>
-                    <p style="margin-bottom: 18px; font-size:15px;">📍 <strong>Endereço:</strong> Rua da Boavista 651, 4050-109 Porto, Portugal</p>
-                    <p style="margin-bottom: 18px; font-size:15px;">📞 <strong>Telefone:</strong> 22 201 1680 (Rede fixa nacional)</p>
+                    <h3 style="font-size: 2.2rem; margin-bottom: 25px;">Localização & Reservas</h3>
+                    <p style="margin-bottom: 15px; font-size:15px;">📍 <strong>Endereço:</strong> Rua da Boavista 651, 4050-109 Porto</p>
+                    <p style="margin-bottom: 15px; font-size:15px;">📞 <strong>Telefone:</strong> 22 201 1680 (Rede fixa nacional)</p>
                 </div>
 
                 <div class="hours-panel">
-                    <h4 style="font-size:1.4rem; margin-bottom:20px;">Horário de Funcionamento</h4>
+                    <h4 style="font-size:1.3rem; margin-bottom:15px;">Horário de Funcionamento</h4>
                     <table class="table-hours">
                         <tr><td>Segunda a Sábado</td><td>11:30 – 23:00</td></tr>
-                        <tr><td>Domingo</td><td class="closed-day">Encerrado para descanso</td></tr>
+                        <tr><td>Domingo</td><td class="closed-day">Encerrado</td></tr>
                     </table>
                 </div>
             </div>
@@ -766,22 +758,24 @@
         </div>
     </footer>
 
-    <!-- INTERACTIVE LIGHTBOX SYSTEM WITH ADVANCED ZOOM -->
+    <!-- INTERACTIVE LIGHTBOX SYSTEM OTIMIZADO PARA MOBILE -->
     <div id="lightbox-modal" class="lightbox-modal">
         <button class="lb-close" onclick="closeLightbox()">&times;</button>
-        <button class="lb-arrow lb-prev" onclick="changeImage(-1)">&#10094;</button>
-        <button class="lb-arrow lb-next" onclick="changeImage(1)">&#10095;</button>
         
         <div class="lightbox-content-wrapper">
+            <!-- As setas agora ficam perfeitamente acessíveis por cima ou ao lado da imagem no mobile -->
+            <button class="lb-arrow lb-prev" onclick="changeImage(-1); event.stopPropagation();">&#10094;</button>
+            <button class="lb-arrow lb-next" onclick="changeImage(1); event.stopPropagation();">&#10095;</button>
+            
             <div id="lb-viewer" class="lightbox-viewer" onclick="toggleZoom(event)">
                 <img id="lightbox-img" class="lightbox-img" src="" alt="Visualização Expandida">
             </div>
             <div id="lb-counter" class="lb-counter">1 / 5</div>
-            <div class="lb-zoom-hint">Clique em cima da imagem para aproximar (Zoom) ou afastar</div>
+            <div class="lb-zoom-hint">Toque na imagem para aplicar zoom manual</div>
         </div>
     </div>
 
-    <!-- Script de Controlo de Imagem Interativa -->
+    <!-- Script de Gestão da Ementa e Galeria -->
     <script>
         const menuImages = ['menu1.png', 'menu2.png', 'menu3.png', 'menudetabuas.png', 'sobremesas.png'];
         const foodImages = ['francesinha.png', 'comida2.png', 'comida3.png'];
@@ -816,7 +810,8 @@
 
         function updateLightbox() {
             lightboxImg.src = currentGallery[currentIndex];
-            lbCounter.innerText = `${currentIndex + 1} / ${currentGallery.length}`;
+            let prefix = currentGallery === menuImages ? "Ementa 2024/2025 - Página " : "Foto ";
+            lbCounter.innerText = `${prefix} ${currentIndex + 1} de ${currentGallery.length}`;
             resetZoom();
         }
 
@@ -830,8 +825,7 @@
         function toggleZoom(e) {
             isZoomed = !isZoomed;
             if (isZoomed) {
-                lightboxImg.style.transform = "scale(2.3)"; // Zoom ideal para leitura legível em ecrãs
-                lbViewer.classList.add('zoomed');
+                lightboxImg.style.transform = "scale(2)"; 
                 lbViewer.style.overflow = "auto";
             } else {
                 resetZoom();
@@ -841,7 +835,6 @@
         function resetZoom() {
             isZoomed = false;
             lightboxImg.style.transform = "scale(1)";
-            lbViewer.classList.remove('zoomed');
             lbViewer.style.overflow = "hidden";
         }
 
